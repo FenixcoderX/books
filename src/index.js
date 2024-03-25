@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 
+// Entry point of the application. Renders the App component inside a BrowserRouter
 ReactDOM.render(
   <BrowserRouter>
     <App />

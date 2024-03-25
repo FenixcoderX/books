@@ -3,6 +3,10 @@ import { Route, Routes } from 'react-router-dom';
 import BookList from './components/BookList';
 import BookSearch from './components/BookSearch';
 
+/** 
+ * Main component for the Books application
+ * @returns {JSX.Element} The rendered App component 
+ */
 const App = () => {
   return (
     <Routes>
