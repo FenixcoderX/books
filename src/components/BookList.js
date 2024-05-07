@@ -5,7 +5,6 @@ import BookShelf from './BookShelf';
 
 // Сomponent that displays shelfs with books
 const BookList = () => {
-  // Set the initial state of books as an empty array
   const [books, setBooks] = useState([]);
 
   // useEffect hook that runs once when the component is mounted
@@ -16,7 +15,6 @@ const BookList = () => {
       try {
         const res = await BooksAPI.getAll();
         setBooks(res);
-        // console.log('getAll Response from API:', res);
       } catch (error) {
         console.error('Error fetching books:', error);
       }
@@ -31,12 +29,9 @@ const BookList = () => {
    * @param {string} shelf - The new shelf value for the book.
    */
   const updateBooks = async (book, shelf) => {
-    // console.log('book', book);
-    // console.log('shelf', shelf);
     try {
       await BooksAPI.update(book, shelf);
       const res = await BooksAPI.getAll();
-      // console.log('res', res);
       setBooks(res);
     } catch (error) {
       console.error('Error updating book:', error);
@@ -49,14 +44,12 @@ const BookList = () => {
    * @returns {JSX.Element} - The JSX element representing the shelf with books.
    */
   const createShelfWithBooks = (books) => {
-    // console.log('This is books comes to createShelfWithBooks', books);
     const shelfWithBooks = { currentlyReading: [], wantToRead: [], read: [] }; // Create object shelfWithBooks (keys - this is shelf, value - this is array with book objects)
     books.forEach((value) => {
       Object.keys(shelfWithBooks).includes(value.shelf) // check that shelf of the book exists in object shelfWithBooks
         ? shelfWithBooks[value.shelf].push(value) // if shelf exists, push book object to array of this shelf in shelfWithBooks
         : (shelfWithBooks[value.shelf] = [value]); // if shelf doesn't exist, create new key in object shelfWithBooks and push book object to array of this shelf in shelfWithBooks
     });
-    // console.log ('This is object shelfWithBooks',shelfWithBooks);
 
     return (
       <div>
@@ -76,8 +69,6 @@ const BookList = () => {
 
   return (
     <div className="list-books">
-      {/* { console.log ('book state', books)
-         } */}
       <div className="list-books-title">
         <img src="/logo2.png" alt="Home" style={{ width: '60px' }} />
         <h1>Books</h1>

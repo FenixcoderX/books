@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 
-// Сomponent that displays book
 const BookItem = ({ book, updateBooks, shelfWithBooks }) => {
   // book - object with book data
   // updateBooks - function that updates the shelf of a book
@@ -10,11 +9,6 @@ const BookItem = ({ book, updateBooks, shelfWithBooks }) => {
   const arrayOfShelfs = Object.keys(shelfWithBooks);
   arrayOfShelfs.push('none');
   
-  // console.log ('arrayOfShelfs',arrayOfShelfs)
-  // console.log ('book',book)
-  // if (book.shelf === "read") {
-  // console.log ('book.shelf',book.shelf)}
-
   return (
     <li>
       <div className="book">

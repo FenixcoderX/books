@@ -3,13 +3,10 @@ import { Link } from 'react-router-dom';
 import * as BooksAPI from '../services/BooksAPI';
 import BookItem from './BookItem';
 
-// Сomponent that displays search results of books
 const BookSearch = () => {
-  // Set the initial states
   const [searchQuery, setSearchQuery] = useState('');
   const [books, setBooks] = useState([]);
   const [bookShelf, setBookShelf] = useState('');
-  // console.log(searchQuery);
 
   // useEffect hook that runs when the component is mounted and every time when searchQuery or bookShelf changes
   useEffect(() => {
@@ -21,8 +18,6 @@ const BookSearch = () => {
       try {if (searchQuery !== '') {
         const searchedBooks = await BooksAPI.search(searchQuery); // Fetches books from API based on the search query
         const booksInOurLibrary = await BooksAPI.getAll(); // Fetches all books that have their shelfs from API
-        // console.log('searchedBooks before MAP', searchedBooks);
-        // console.log('searchedBooks after MAP', searchedBooks);
 
         // Check if there are no errors in the search results
         if (!searchedBooks.error) {

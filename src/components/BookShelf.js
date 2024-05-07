@@ -1,14 +1,12 @@
 import PropTypes from 'prop-types';
 import BookItem from './BookItem';
 
-// Сomponent that displays shelf with books
 const BookShelf = ({
   bookShelfTitle, // string that represents the name of the shelf
   booksInShelf, // array with books
   updateBooks, // function that updates the shelf of a book
   shelfWithBooks, // object with keys - this is shelf, value - this is array with book objects
 }) => {
-  // console.log('booksInShelf', booksInShelf);
 
   return (
     <div className="bookshelf">
